@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    internal class palindrome1
+    {
+        static void Main()
+        {
+            Console.WriteLine("Enter a sentence:");
+            string input = Console.ReadLine();
+
+            string[] words = input.Split(' ');
+            int count = 0;
+
+            foreach (string word in words)
+            {
+                string lower = word.ToLower();
+                char[] ch = lower.ToCharArray();
+                Array.Reverse(ch);
+                string reversed = new string(ch);
+
+                if (lower == reversed && lower.Length > 1)
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine("\nTotal Count of Palindrome Words : " + count);
+        }
+    }
+}
+
