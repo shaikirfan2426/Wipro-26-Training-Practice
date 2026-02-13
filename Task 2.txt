@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstNonrepeatingchar
+{
+    internal class Palindrome
+    {
+        static void Main()
+        {
+            string s = "Too hot to hoot.";
+            string clean = "";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (char.IsLetterOrDigit(s[i]))
+                {
+                    clean += char.ToLower(s[i]);
+                }
+            }
+
+            int left = 0;
+            int right = clean.Length - 1;
+            bool isPalindrome = true;
+
+            while (left < right)
+            {
+                if (clean[left] != clean[right])
+                {
+                    isPalindrome = false;
+                    break;
+                }
+                left++;
+                right--;
+            }
+
+            Console.WriteLine(isPalindrome);
+        }
+    }
+}
+
