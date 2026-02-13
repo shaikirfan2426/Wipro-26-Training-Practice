@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstNonrepeatingchar
+{
+    internal class Removal
+    {
+        static void Main()
+        {
+            string str = "qddxxxd";
+            int k = 3;
+
+            bool changed = true;
+
+            while (changed)
+            {
+                changed = false;
+                string result = "";
+
+                for (int i = 0; i < str.Length;)
+                {
+                    int count = 1;
+
+                    while (i + count < str.Length && str[i] == str[i + count])
+                    {
+                        count++;
+                    }
+
+                    if (count == k)
+                    {
+                        changed = true;
+                    }
+                    else
+                    {
+                        result += str.Substring(i, count);
+                    }
+
+                    i = i + count;
+                }
+
+                str = result;
+            }
+
+            Console.WriteLine(str);
+        }
+    }
+
+}
+
