@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstNonrepeatingchar
+{
+    internal class Nonrepeatingstring
+    {
+        static void Main(string[] args)
+        {
+            string s = "racecar";
+            int[] count = new int[26];
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                count[s[i] - 'a']++;
+            }
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (count[s[i] - 'a'] == 1)
+                {
+                    Console.WriteLine(s[i]);
+                    return;
+                }
+            }
+
+            Console.WriteLine('$');
+        }
+    }
+}
+    
